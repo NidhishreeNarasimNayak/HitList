@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+//new comment
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -19,17 +19,35 @@ class ViewController: UIViewController {
         ///set title of navigation bar itrm
         title = "The List"
     }
+    //fetching from core data
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Person")
+        do {
+            people = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
     //Implement the addName IBAction
     @IBAction func addName(_ sender: UIBarButtonItem) {
-let alert = UIAlertController(title: "New Name", message: "Add a new name", preferredStyle: .alert)
+        
+        let alert = UIAlertController(title: "New Name", message: "Add a new name", preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] (action) in
-           // print(alert.textFields?.count)
+            // print(alert.textFields?.count)
             //refers to which textField we are accessing from the textField array
             guard let textField = alert.textFields?.first,  //refers to the text of the first text field
                 let nameToSave = textField.text else {
                     return
             }
-           // self.save(name: nameToSave)
+        
+            self.save(name: nameToSave)
             //self.names.append(nameToSave)
             self.tableView.reloadData()
         }
@@ -39,6 +57,27 @@ let alert = UIAlertController(title: "New Name", message: "Add a new name", pref
         alert.addAction(cancelAction)
         present(alert, animated: false)
         
+    }
+    func save(name: String) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        //NSManagedObjectContext allows to insert, save and retrieve NSManaged Objects from database.
+        let managedContext = appDelegate.persistentContainer.viewContext
+        // create an object
+        guard  let entity = NSEntityDescription.entity(forEntityName: "Person", in: managedContext) else { return }
+        //saving new ManagedObject in core data
+        let person = NSManagedObject(entity: entity, insertInto: managedContext)
+        //setting the attributes of the managed object
+        person.setValue(name, forKey: "name")
+        
+        
+        do { //saving the info to disk
+            try managedContext.save()
+            people.append(person)
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
     }
 }
 
@@ -50,6 +89,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let person = people[indexPath.row]
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HitListCell.self), for: indexPath) as? HitListCell else { return HitListCell() }
+        //match the cells with corresponding NSObject
         cell.textLabel?.text = person.value(forKey: "name") as? String
         return cell
     }

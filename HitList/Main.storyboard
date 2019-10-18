@@ -38,13 +38,41 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HitListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HitListCell" id="9re-XN-7Yn" customClass="HitListCell" customModule="HitList" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HitListCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HitListCell" rowHeight="305" id="9re-XN-7Yn" customClass="HitListCell" customModule="HitList" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="305"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9re-XN-7Yn" id="L8J-H9-GHy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="304.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Age" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXx-RT-4Nx">
+                                                    <rect key="frame" x="0.0" y="33" width="414" height="259.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="  Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMm-oD-zdz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="qXx-RT-4Nx" firstAttribute="trailing" secondItem="VMm-oD-zdz" secondAttribute="trailing" id="0hy-I3-vsO"/>
+                                                <constraint firstItem="VMm-oD-zdz" firstAttribute="leading" secondItem="L8J-H9-GHy" secondAttribute="leading" id="J9r-VA-yM1"/>
+                                                <constraint firstAttribute="trailing" secondItem="VMm-oD-zdz" secondAttribute="trailing" id="KLG-gJ-bon"/>
+                                                <constraint firstAttribute="bottom" secondItem="qXx-RT-4Nx" secondAttribute="bottom" constant="12" id="OW7-Wq-eeH"/>
+                                                <constraint firstItem="VMm-oD-zdz" firstAttribute="top" secondItem="L8J-H9-GHy" secondAttribute="top" id="fOU-Qc-DyG"/>
+                                                <constraint firstItem="qXx-RT-4Nx" firstAttribute="top" secondItem="VMm-oD-zdz" secondAttribute="bottom" constant="12" id="lW1-lV-xGf"/>
+                                                <constraint firstItem="qXx-RT-4Nx" firstAttribute="leading" secondItem="VMm-oD-zdz" secondAttribute="leading" id="lgV-rT-qet"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="ageLabel" destination="qXx-RT-4Nx" id="C08-IU-5Fx"/>
+                                            <outlet property="nameLabel" destination="VMm-oD-zdz" id="tFX-A1-w7y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -75,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ldZ-v5-K66" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-377" y="-163"/>
+            <point key="canvasLocation" x="-378.26086956521743" y="-163.39285714285714"/>
         </scene>
     </scenes>
 </document>

@@ -14,9 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+      
         return true
     }
 
@@ -73,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return container
     }()
 
+  // let _ = Person(context: persistentContainer.viewContext)
     // MARK: - Core Data Saving support
 
     func saveContext () {
@@ -88,6 +89,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }
 

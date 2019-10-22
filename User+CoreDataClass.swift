@@ -2,7 +2,7 @@
 //  User+CoreDataClass.swift
 //  HitList
 //
-//  Created by Nidhishree on 18/10/19.
+//  Created by Nidhishree on 21/10/19.
 //  Copyright © 2019 YML. All rights reserved.
 //
 //

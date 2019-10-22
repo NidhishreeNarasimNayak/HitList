@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  HitList
 //
-//  Created by Nidhishree on 18/10/19.
+//  Created by Nidhishree on 21/10/19.
 //  Copyright © 2019 YML. All rights reserved.
 //
 //
@@ -17,7 +17,7 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var name: String?
     @NSManaged public var age: Int16
+    @NSManaged public var name: String?
 
 }

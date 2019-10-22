@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-//new comment
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     var user: [NSManagedObject] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        ///set title of navigation bar itrm
+        ///set title of navigation bar item
         title = "The List"
     }
     //fetching from core data
@@ -95,7 +95,6 @@ extension ViewController: UITableViewDataSource {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HitListCell.self), for: indexPath) as? HitListCell else { return HitListCell() }
         guard let person = user[indexPath.row] as? User else { return cell }
-        
         //match the cells with corresponding NSObject
         //cell.textLabel?.text = person.value(forKey: "name") as? String
         cell.nameLabel.text = person.name
